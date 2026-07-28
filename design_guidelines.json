@@ -1,0 +1,166 @@
+{
+  "project_overview": {
+    "name": "Power Stein Sonora",
+    "description": "A premium, Awwwards-level website for a solar panel installation company in Hermosillo, Sonora. Designed to convert visitors into leads while conveying trust, savings, and clean technology.",
+    "target_audience": "Homeowners and businesses in Sonora, Mexico looking to save on high electricity bills.",
+    "theme_strategy": "Hybrid: Brilliant Light theme for primary trust/content sections (evoking sunlight and clarity), with deep Obsidian/Electric Blue sections for high-contrast technical or 'savings' moments (creating premium tension)."
+  },
+  "art_direction": {
+    "concept": "The Kinetic Solar Engine. The design moves away from generic eco-green leaves and focuses on high-end technology, massive numbers (savings), and editorial confidence. We use architectural precision mixed with dynamic, fluid motion.",
+    "vibe": "Premium, authoritative, clean, energetic."
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Cabinet Grotesk",
+      "import_url": "https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,900&display=swap",
+      "usage": "Use for all H1, H2, H3. Apply tight tracking (tracking-tighter) and leading-none for large text.",
+      "styles": {
+        "h1": "text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase",
+        "h2": "text-4xl md:text-5xl font-bold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-semibold tracking-tight"
+      }
+    },
+    "body": {
+      "font_family": "Manrope",
+      "import_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap",
+      "usage": "Use for all paragraphs, labels, and UI text.",
+      "styles": {
+        "large": "text-lg md:text-xl font-medium leading-relaxed",
+        "default": "text-base md:text-lg font-normal leading-relaxed",
+        "small": "text-sm uppercase tracking-[0.2em] font-bold"
+      }
+    }
+  },
+  "colors": {
+    "archetype": "The Performance Pro mixed with Swiss Brutalist (Eco-Tech variant)",
+    "palette": {
+      "primary": {
+        "name": "Electric Blue",
+        "hex": "#0047FF",
+        "tailwind": "bg-[#0047FF] text-[#0047FF]",
+        "usage": "Primary CTAs, active states, key highlight words in headings."
+      },
+      "secondary": {
+        "name": "Solar Flare",
+        "hex": "#FF7A00",
+        "tailwind": "bg-[#FF7A00] text-[#FF7A00]",
+        "usage": "Urgency badges ('24 horas'), floating WhatsApp button, interactive slider thumbs."
+      },
+      "backgrounds": {
+        "light": "#F8FAFC",
+        "white": "#FFFFFF",
+        "dark": "#0A0A0A"
+      },
+      "text": {
+        "primary": "#0F172A",
+        "secondary": "#475569",
+        "inverse": "#FFFFFF"
+      }
+    },
+    "rules": [
+      "NEVER use full-screen gradients. Use solid colors or very subtle noise overlays.",
+      "Hover states for primary buttons must shift to a darker hue of the same color, or invert.",
+      "Ensure all text meets APCA/WCAG contrast ratios."
+    ]
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing. Use 2-3x more whitespace than typical to feel premium.",
+    "container": "max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24",
+    "section_padding": "py-20 md:py-32",
+    "grids": {
+      "bento": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6 md:gap-8",
+      "features": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+    }
+  },
+  "ui_components": {
+    "buttons": {
+      "primary": "rounded-full bg-[#0047FF] text-white px-8 py-4 font-bold transition-transform hover:scale-105 hover:bg-blue-700 hover:shadow-xl",
+      "secondary": "rounded-full border border-slate-200 bg-white text-slate-900 px-8 py-4 font-bold transition-colors hover:bg-slate-50",
+      "whatsapp": "fixed bottom-8 right-8 z-50 rounded-full bg-[#25D366] text-white p-4 shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+    },
+    "cards": {
+      "style": "bg-white border border-slate-100 rounded-3xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)]",
+      "hover": "hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300"
+    },
+    "header": {
+      "style": "fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-100 transition-all",
+      "rule": "CRITICAL: Never use a completely transparent header. Always maintain bg-white/85 with blur to ensure text readability."
+    }
+  },
+  "motion_and_interactions": {
+    "libraries": ["framer-motion", "lenis"],
+    "hero_reveal": "Masked line-by-line text reveal on load. Use overflow-hidden on text wrappers and translate Y from 100% to 0%.",
+    "scroll_animations": "Elements should gently fade in and slide up (y: 30 to 0) as they enter the viewport using whileInView.",
+    "marquee": "Use a slow editorial marquee for the trust badges and '1,600+ Instalaciones' separated by a dot or star. Use large text-transparent with webkit-text-stroke.",
+    "parallax": "Subtle parallax on the hero image or background abstract elements."
+  },
+  "pages_and_routing": {
+    "framework": "React Router DOM",
+    "routes": [
+      { "path": "/", "name": "Inicio", "component": "Home" },
+      { "path": "/nosotros", "name": "Nosotros", "component": "About" },
+      { "path": "/paneles-solares", "name": "Paneles Solares", "component": "Products" },
+      { "path": "/casos-de-exito", "name": "Casos de Éxito", "component": "SuccessCases" },
+      { "path": "/contacto", "name": "Contacto", "component": "Contact" }
+    ]
+  },
+  "page_sections_home": {
+    "hero": {
+      "content": "Headline: 'Ahorra hasta 98% en tu recibo de luz'. Subtext focusing on Sonora's solar potential. CTA: 'Cotiza Gratis'.",
+      "design": "Massive kinetic typography. Real product photography masked in a sharp architectural shape (e.g., an arched or rounded rectangle clip-path). Floating badges for '1,600+ instalaciones', '300M ahorrados', '43k ton CO2'."
+    },
+    "interactive_calculator": {
+      "concept": "A sleek, dark-themed section (The Tech Core). User slides a custom slider (using shadcn Slider) to input their current CFE bill. A massive counter animates to show their potential savings over 1 year and 5 years.",
+      "ui": "Dark background (#0A0A0A), glowing Electric Blue accents."
+    },
+    "benefits_bento": {
+      "concept": "Tetris-style Bento Grid. Mix of large spans and small squares.",
+      "items": ["Garantía 25 años", "Monitoreo 24/7", "Cero Enganche", "Instalación Premium"]
+    },
+    "process_timeline": {
+      "concept": "Vertical or horizontal scrolling timeline using framer-motion line drawing. Steps: 1. Análisis, 2. Propuesta, 3. Instalación, 4. Ahorro."
+    },
+    "success_cases": {
+      "concept": "Carousel or grid of high-quality photos of real installations in Hermosillo. Include customer quotes and ROI time."
+    },
+    "faq_accordion": {
+      "concept": "Clean, border-bottom only accordion (no boxes). Shadcn Accordion component.",
+      "questions": ["¿Cuánto tiempo tarda la instalación?", "¿Qué pasa si me mudo?", "¿Cómo funciona el medidor bidireccional?"]
+    },
+    "lead_capture_footer": {
+      "concept": "Massive CTA area. Headline 'Cotiza tu proyecto. Respuesta en menos de 24 horas.' Form with Name, Phone, Email, CFE Bill Amount. Button with urgency."
+    }
+  },
+  "image_urls": {
+    "hero_installation": {
+      "url": "https://images.pexels.com/photos/35726122/pexels-photo-35726122.jpeg",
+      "description": "High quality solar panels on modern roof. Use for hero or main visual."
+    },
+    "family_savings": {
+      "url": "https://images.unsplash.com/photo-1740679953679-23433eaf3156",
+      "description": "Family in home setting. Use for 'About Us' or emotional savings section."
+    },
+    "tech_abstract": {
+      "url": "https://images.unsplash.com/photo-1536408745983-0f03be6e8a00",
+      "description": "Abstract blue solar panels. Use as background for the Calculator section."
+    },
+    "massive_scale": {
+      "url": "https://images.unsplash.com/photo-1641959165241-9ba4a661ecb5",
+      "description": "Large solar array in desert. Fits the Sonora context for 'Casos de Exito' or 'Impacto' section."
+    }
+  },
+  "universal_guidelines_for_main_agent": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. Make creative, distinctive frontends that surprise and delight.",
+    "IMPLEMENT MULTI-PAGE ROUTING: Use react-router-dom to create actual independent pages as requested, not just a single-page scrolling site. Provide navigation links in the Header.",
+    "CODE IN .js / .jsx: Do not use TypeScript (.tsx). Provide code using standard JavaScript and React.",
+    "LANGUAGE: All visible text must be in Spanish, targeting the Mexican market (e.g., CFE for electricity bills).",
+    "DATA TEST IDS (CRITICAL): All interactive elements (buttons, inputs, links, accordions) MUST have a 'data-testid' attribute in kebab-case based on role (e.g., data-testid='cta-cotiza-hero').",
+    "NO TRANSPARENT HEADERS OVER CONTENT: If using a sticky header over a hero image, you MUST apply a background with opacity and backdrop-blur (e.g., bg-white/80 backdrop-blur-md) so menu items remain legible.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Every interaction needs micro-animations: hover states, transitions, entrance animations. Static = dead.",
+    "Do not use generic centered layouts. Use asymmetrical grids, staggered typography, and optical alignment.",
+    "Always use the provided image URLs. NEVER use placeholder services like via.placeholder.com.",
+    "Use lucide-react for all iconography.",
+    "Ensure Shadcn components are fully customized to match the brand colors and border radii (no default Vercel look)."
+  ]
+}
