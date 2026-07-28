@@ -1,12 +1,13 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import httpx
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field
+from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
 
@@ -14,59 +15,113 @@ from datetime import datetime, timezone
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
 app = FastAPI()
-
-# Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Email integration (Emergent managed Resend)
+EMAIL_BASE_URL = "https://integrations.emergentagent.com"
+EMAIL_KEY = os.environ["EMERGENT_EMAIL_KEY"]
+EMAIL_FROM_NAME = os.environ["EMAIL_FROM_NAME"]
+LEAD_NOTIFICATION_EMAIL = os.environ["LEAD_NOTIFICATION_EMAIL"]
 
-# Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
-    
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+
+class LeadCreate(BaseModel):
+    nombre: str
+    telefono: str
+    ciudad: str
+    recibo: str
+    email: Optional[str] = None
+    mensaje: Optional[str] = None
+    origen: Optional[str] = "Formulario web"
+
+
+class Lead(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    nombre: str
+    telefono: str
+    ciudad: str
+    recibo: str
+    email: Optional[str] = None
+    mensaje: Optional[str] = None
+    origen: Optional[str] = "Formulario web"
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
 
-# Add your routes to the router instead of directly to app
+def build_lead_email(lead: Lead) -> str:
+    return f"""
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#0047FF;padding:24px;border-radius:12px 12px 0 0;">
+        <tr><td style="color:#fff;font-size:22px;font-weight:bold;">☀️ Nuevo lead — Power Stein Sonora</td></tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;padding:24px;border:1px solid #e2e8f0;border-top:none;">
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Nombre</td></tr>
+        <tr><td style="padding:0 0 12px;color:#0f172a;font-size:18px;font-weight:bold;">{lead.nombre}</td></tr>
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Teléfono</td></tr>
+        <tr><td style="padding:0 0 12px;color:#0f172a;font-size:18px;font-weight:bold;">{lead.telefono}</td></tr>
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Ciudad</td></tr>
+        <tr><td style="padding:0 0 12px;color:#0f172a;font-size:18px;">{lead.ciudad}</td></tr>
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Pago mensual de luz (CFE)</td></tr>
+        <tr><td style="padding:0 0 12px;color:#FF7A00;font-size:20px;font-weight:bold;">${lead.recibo}</td></tr>
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Correo</td></tr>
+        <tr><td style="padding:0 0 12px;color:#0f172a;font-size:16px;">{lead.email or '—'}</td></tr>
+        <tr><td style="padding:8px 0;color:#475569;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Mensaje</td></tr>
+        <tr><td style="padding:0 0 12px;color:#0f172a;font-size:16px;">{lead.mensaje or '—'}</td></tr>
+        <tr><td style="padding:16px 0 0;color:#94a3b8;font-size:12px;">Origen: {lead.origen} · {lead.created_at}</td></tr>
+      </table>
+    </div>
+    """
+
+
+async def send_lead_email(lead: Lead):
+    payload = {
+        "to": [LEAD_NOTIFICATION_EMAIL],
+        "subject": f"🔆 Nueva cotización: {lead.nombre} ({lead.ciudad}) — paga ${lead.recibo}/mes",
+        "html": build_lead_email(lead),
+        "from_name": EMAIL_FROM_NAME,
+    }
+    if lead.email:
+        payload["contact_email"] = lead.email
+    async with httpx.AsyncClient(timeout=30) as http_client:
+        resp = await http_client.post(
+            f"{EMAIL_BASE_URL}/api/v1/email/send",
+            headers={"X-Email-Key": EMAIL_KEY},
+            json=payload,
+        )
+    resp.raise_for_status()
+    return resp.json().get("id")
+
+
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Power Stein Sonora API"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
-    return status_checks
+@api_router.post("/leads")
+async def create_lead(payload: LeadCreate):
+    lead = Lead(**payload.model_dump())
+    await db.leads.insert_one(lead.model_dump())
+    email_ok = True
+    try:
+        await send_lead_email(lead)
+    except Exception as e:
+        email_ok = False
+        logger.error(f"Lead email failed: {e}")
+    return {"status": "success", "id": lead.id, "email_sent": email_ok}
 
-# Include the router in the main app
+
+@api_router.get("/leads", response_model=List[Lead])
+async def list_leads():
+    leads = await db.leads.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+    return leads
+
+
 app.include_router(api_router)
 
 app.add_middleware(
@@ -77,12 +132,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
