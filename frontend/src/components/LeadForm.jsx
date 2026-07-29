@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Loader2, CheckCircle2, Clock } from "lucide-react";
 import { submitLead } from "@/lib/api";
+import { CONTACT } from "@/lib/data";
 
 const CITIES = ["Hermosillo", "San Carlos", "Guaymas", "Nogales", "Ciudad Obregón", "Otra"];
 
@@ -19,12 +20,26 @@ export const LeadForm = ({ compact = false }) => {
       return;
     }
     setLoading(true);
+
+    const lines = [
+      "*Nombre:*", form.nombre,
+      "", "*Teléfono / WhatsApp:*", form.telefono,
+      "", "*Ciudad:*", form.ciudad,
+      "", "*¿Cuánto pagas de luz al mes?:*", form.recibo,
+    ];
+    if (form.email && form.email.trim()) {
+      lines.push("", "*Correo (opcional):*", form.email.trim());
+    }
+    const waUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(waUrl, "_blank");
+
     try {
       await submitLead({ ...form, origen: "Formulario de contacto" });
       setDone(true);
       toast.success("¡Solicitud enviada! Te contactamos en menos de 24 horas.");
     } catch (err) {
-      toast.error("Ocurrió un error. Escríbenos por WhatsApp e intentamos de nuevo.");
+      setDone(true);
+      toast.success("Abrimos WhatsApp para enviar tu cotización.");
     } finally {
       setLoading(false);
     }

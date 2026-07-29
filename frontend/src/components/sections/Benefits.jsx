@@ -18,7 +18,7 @@ export const Benefits = () => (
           const Icon = ICONS[b.icon];
           return (
             <Reveal key={b.title} delay={i * 0.08}>
-              <div data-testid="benefit-card" className="group bg-white border border-slate-100 rounded-3xl p-8 h-full shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300">
+              <div data-testid="benefit-card" className="group bg-white border border-slate-100 border-t-4 border-t-transparent hover:border-t-brand-green rounded-3xl p-8 h-full shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300">
                 <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center group-hover:bg-brand-blue transition-colors duration-300">
                   <Icon className="w-7 h-7 text-brand-blue group-hover:text-white transition-colors duration-300" strokeWidth={2} />
                 </div>

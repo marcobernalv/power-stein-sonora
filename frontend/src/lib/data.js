@@ -1,13 +1,16 @@
 // Central content + assets for Power Stein Sonora
+export const LOGO = "https://customer-assets-7cd3h4nn.emergentagent.net/job_paneles-solares-mx/artifacts/nr4fhcj7_IMG_0956.png";
+export const BRAND_GREEN = "#C3D502";
+
 export const CONTACT = {
-  whatsapp: "6624332313",
+  whatsapp: "5216624332313",
   whatsappDisplay: "662 433 2313",
-  whatsappUrl: "https://wa.me/526624332313?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20paneles%20solares",
+  whatsappUrl: "https://wa.me/5216624332313?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20paneles%20solares",
   phone: "662 433 2313",
   email: "ventas@powersteinsonora.com",
   address: "Mielera Final S/N, Col. El Llano, Hermosillo, Sonora",
-  facebook: "https://facebook.com",
-  instagram: "https://instagram.com",
+  facebook: "https://www.facebook.com/share/1JQvdjzW9m/?mibextid=wwXIfr",
+  instagram: "https://www.instagram.com/powersteinsonora",
 };
 
 export const IMG = {
@@ -44,10 +47,10 @@ export const PROCESS = [
 ];
 
 export const CASES = [
-  { zona: "Residencial · Col. Pitic", ahorro: "94%", antes: "$4,800/mes", desc: "Familia de 5 integrantes que eliminó su tarifa DAC por completo.", img: IMG.residential },
-  { zona: "Comercial · Parque Industrial", ahorro: "88%", antes: "$62,000/mes", desc: "Nave industrial con sistema de 120 paneles y retorno en 3 años.", img: IMG.commercial },
-  { zona: "Residencial · San Carlos", ahorro: "97%", antes: "$6,200/mes", desc: "Casa de playa con clima todo el día, ahora prácticamente sin recibo.", img: IMG.hero },
-  { zona: "Residencial · Villa Satélite", ahorro: "91%", antes: "$3,500/mes", desc: "Cambió su tarifa alta por un recibo mínimo en menos de un mes.", img: IMG.desert },
+  { zona: "Residencial · Pantiti", ahorro: "90%", antes: "$4,800/mes", desc: "Familia que eliminó casi por completo su tarifa alta de CFE.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/pantiti-400x250.jpg" },
+  { zona: "Comercial · Hermosillo", ahorro: "88%", antes: "$62,000/mes", desc: "Proyecto comercial de gran escala documentado desde el aire.", img: "https://www.powersteinsonora.com/wp-content/uploads/2020/06/DJI_0031.png" },
+  { zona: "Residencial · Oscar Luna", ahorro: "70%", antes: "$6,200/mes", desc: "Instalación residencial con reducción notable en el recibo mensual.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/Oscar-Luna-400x250.jpg" },
+  { zona: "Residencial · Monterosa", ahorro: "20%", antes: "$3,500/mes", desc: "Sistema instalado para complementar el consumo del hogar.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/Monterosa-400x250.jpg" },
 ];
 
 export const BRANDS = ["Canadian Solar", "Trina Solar", "Jinko Solar", "Enphase", "Fronius", "Growatt"];

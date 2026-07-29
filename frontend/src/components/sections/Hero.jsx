@@ -18,8 +18,8 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 text-brand-flare px-4 py-2 text-sm font-bold">
-                ☀️ #1 en energía solar en Sonora
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-green/20 text-slate-800 px-4 py-2 text-sm font-bold border border-brand-green/40">
+                <span className="w-2 h-2 rounded-full bg-brand-green" /> #1 en energía solar en Sonora
               </span>
             </Reveal>
             <h1 className="font-display font-black tracking-tighter uppercase text-slate-900 mt-6 text-5xl md:text-6xl lg:text-7xl leading-[0.92]">

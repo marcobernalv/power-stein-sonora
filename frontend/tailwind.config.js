@@ -15,6 +15,7 @@ module.exports = {
         brand: {
           blue: '#0047FF',
           flare: '#FF7A00',
+          green: '#C3D502',
           ink: '#0A0A0A',
           light: '#F8FAFC',
         },
