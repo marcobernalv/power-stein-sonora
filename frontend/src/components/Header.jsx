@@ -29,9 +29,9 @@ export const Header = () => {
       data-testid="site-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/85 backdrop-blur-xl border-b border-slate-100 shadow-sm" : "bg-white/70 backdrop-blur-md"}`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-24">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-20">
         <Link to="/" data-testid="logo-link" aria-label="Power Stein Sonora inicio">
-          <Logo className="h-11 md:h-14 w-auto" />
+          <Logo className="h-7 md:h-8 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">

@@ -6,7 +6,7 @@ export const Footer = () => (
   <footer className="bg-brand-ink text-white" data-testid="site-footer">
     <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="md:col-span-1">
-        <img src={LOGO_FOOTER} alt="Power Stein Paneles Solares" data-testid="footer-logo" className="h-11 md:h-12 w-auto object-contain" />
+        <img src={LOGO_FOOTER} alt="Power Stein Paneles Solares" data-testid="footer-logo" className="h-8 w-auto object-contain" />
         <p className="mt-5 text-slate-400 text-sm leading-relaxed max-w-xs">
           Energía solar de nivel premium en Hermosillo y Sonora. Ahorra hasta 98% en tu recibo de CFE.
         </p>
