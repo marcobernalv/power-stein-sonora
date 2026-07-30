@@ -19,7 +19,7 @@ export default function SuccessCases() {
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08}>
               <div className="text-center bg-brand-light rounded-3xl py-8 border border-slate-100">
-                <p className="font-display text-4xl font-black text-brand-blue">{s.value}</p>
+                <p className="font-display text-4xl font-black text-brand-flare">{s.value}</p>
                 <p className="text-sm text-slate-500 mt-2">{s.label}</p>
               </div>
             </Reveal>

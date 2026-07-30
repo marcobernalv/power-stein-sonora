@@ -94,7 +94,7 @@ export const SavingsCalculator = () => {
               <div className="h-px bg-white/10" />
               <div>
                 <p className="text-slate-400 text-sm uppercase tracking-wider">En 25 años</p>
-                <p className="font-display text-4xl md:text-5xl font-black text-brand-blue leading-none mt-1" data-testid="calc-lifetime">
+                <p className="font-display text-4xl md:text-5xl font-black text-brand-flare leading-none mt-1" data-testid="calc-lifetime">
                   <AnimatedNumber value={twentyFive} />
                 </p>
               </div>
@@ -102,7 +102,7 @@ export const SavingsCalculator = () => {
             <Link
               to="/contacto"
               data-testid="calc-cta"
-              className="mt-10 w-full inline-flex justify-center rounded-full bg-brand-flare text-white px-8 py-4 font-bold hover:bg-orange-600 hover:scale-[1.02] transition-all duration-300"
+              className="mt-10 w-full inline-flex justify-center rounded-full bg-brand-flare text-white px-8 py-4 font-bold hover:brightness-110 hover:scale-[1.02] transition-all duration-300"
             >
               Agenda tu cotización personalizada
             </Link>

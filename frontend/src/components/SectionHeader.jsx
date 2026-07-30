@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 export const SectionHeader = ({ eyebrow, title, subtitle, dark = false, align = "left" }) => (
   <Reveal className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
     {eyebrow && (
-      <span className={`inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-bold ${dark ? "text-brand-green" : "text-brand-blue"}`}>
+      <span className={`inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-bold ${dark ? "text-brand-green" : "text-brand-flare"}`}>
         <span className="w-2.5 h-2.5 rounded-sm bg-brand-green inline-block" />
         {eyebrow}
       </span>

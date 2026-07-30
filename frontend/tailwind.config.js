@@ -13,8 +13,8 @@ module.exports = {
       },
       colors: {
         brand: {
-          blue: '#0047FF',
-          flare: '#FF7A00',
+          blue: '#C3D502',
+          flare: '#0D9488',
           green: '#C3D502',
           ink: '#0A0A0A',
           light: '#F8FAFC',

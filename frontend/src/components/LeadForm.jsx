@@ -59,7 +59,7 @@ export const LeadForm = ({ compact = false }) => {
 
   return (
     <form onSubmit={onSubmit} data-testid="lead-form" className="bg-white rounded-3xl p-7 md:p-9 border border-slate-100 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
-      <div className="inline-flex items-center gap-2 bg-orange-50 text-brand-flare rounded-full px-4 py-2 text-sm font-bold mb-6">
+      <div className="inline-flex items-center gap-2 bg-teal-50 text-brand-flare rounded-full px-4 py-2 text-sm font-bold mb-6">
         <Clock className="w-4 h-4" /> Recibe tu cotización en menos de 24 horas
       </div>
       <div className={`grid gap-4 ${compact ? "" : "md:grid-cols-2"}`}>
@@ -90,7 +90,7 @@ export const LeadForm = ({ compact = false }) => {
         type="submit"
         disabled={loading}
         data-testid="lead-submit"
-        className="mt-6 w-full inline-flex justify-center items-center gap-2 rounded-full bg-brand-blue text-white px-8 py-4 font-bold text-lg hover:bg-blue-700 hover:scale-[1.01] transition-all duration-300 shadow-lg shadow-blue-600/25 disabled:opacity-60"
+        className="mt-6 w-full inline-flex justify-center items-center gap-2 rounded-full bg-brand-blue text-brand-ink px-8 py-4 font-bold text-lg hover:brightness-95 hover:scale-[1.01] transition-all duration-300 shadow-lg shadow-brand-blue/25 disabled:opacity-60"
       >
         {loading ? <><Loader2 className="w-5 h-5 animate-spin" /> Enviando...</> : "Solicita tu cotización gratis"}
       </button>

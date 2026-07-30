@@ -14,7 +14,7 @@ import { Reveal } from "@/components/Reveal";
 import { IMG } from "@/lib/data";
 
 const VerMas = ({ to, label, testid }) => (
-  <Link to={to} data-testid={testid} className="group inline-flex items-center gap-2 font-bold text-brand-blue hover:gap-3 transition-all">
+  <Link to={to} data-testid={testid} className="group inline-flex items-center gap-2 font-bold text-brand-flare hover:gap-3 transition-all">
     {label} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
   </Link>
 );

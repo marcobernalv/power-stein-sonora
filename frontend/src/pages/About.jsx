@@ -52,7 +52,7 @@ export default function About() {
                   <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm h-full">
                     <div className="flex items-center justify-between">
                       <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-brand-blue" />
+                        <Icon className="w-7 h-7 text-brand-flare" />
                       </div>
                       <span className="font-display text-3xl font-black text-slate-200">{t.year}</span>
                     </div>

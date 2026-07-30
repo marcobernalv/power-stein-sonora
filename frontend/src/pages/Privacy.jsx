@@ -14,7 +14,7 @@ export default function Privacy() {
             <h3 className="font-display text-2xl font-bold text-slate-900">Finalidad</h3>
             <p>Sus datos serán utilizados únicamente para contactarle, brindarle información comercial sobre nuestros productos y servicios, y dar seguimiento a su solicitud de cotización.</p>
             <h3 className="font-display text-2xl font-bold text-slate-900">Derechos ARCO</h3>
-            <p>Usted puede ejercer sus derechos de Acceso, Rectificación, Cancelación u Oposición al tratamiento de sus datos enviando un correo a <a href={`mailto:${CONTACT.email}`} className="text-brand-blue font-semibold">{CONTACT.email}</a>.</p>
+            <p>Usted puede ejercer sus derechos de Acceso, Rectificación, Cancelación u Oposición al tratamiento de sus datos enviando un correo a <a href={`mailto:${CONTACT.email}`} className="text-brand-flare font-semibold">{CONTACT.email}</a>.</p>
             <p>No compartimos su información con terceros con fines de mercadotecnia. Al enviar el formulario usted otorga su consentimiento para el tratamiento de sus datos conforme a este aviso.</p>
           </div>
         </div>

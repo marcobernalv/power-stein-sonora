@@ -8,7 +8,7 @@ export const TrustBadges = () => (
   <section className="py-20 md:py-28 bg-brand-light" data-testid="trust-section">
     <div className="max-w-[1440px] mx-auto px-6 md:px-12">
       <Reveal className="text-center">
-        <span className="text-sm uppercase tracking-[0.2em] font-bold text-brand-blue">Confianza comprobada</span>
+        <span className="text-sm uppercase tracking-[0.2em] font-bold text-brand-flare">Confianza comprobada</span>
         <h2 className="font-display text-3xl md:text-4xl font-black tracking-tight text-slate-900 mt-3">
           Respaldados por resultados reales
         </h2>

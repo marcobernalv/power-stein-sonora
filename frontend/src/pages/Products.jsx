@@ -45,7 +45,7 @@ export default function Products() {
                 <Reveal key={s} delay={i * 0.06}>
                   <li className="flex items-start gap-3" data-testid="product-spec">
                     <span className="mt-1 w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center shrink-0">
-                      <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                      <Check className="w-4 h-4 text-brand-ink" strokeWidth={3} />
                     </span>
                     <span className="text-slate-700 font-medium">{s}</span>
                   </li>

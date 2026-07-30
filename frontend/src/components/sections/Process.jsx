@@ -31,7 +31,7 @@ export const Process = () => (
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="relative"
             >
-              <div className="w-16 h-16 rounded-2xl bg-brand-blue text-white flex items-center justify-center font-display text-2xl font-black relative z-10 shadow-lg shadow-blue-600/25">
+              <div className="w-16 h-16 rounded-2xl bg-brand-blue text-brand-ink flex items-center justify-center font-display text-2xl font-black relative z-10 shadow-lg shadow-brand-blue/25">
                 {p.n}
               </div>
               <h3 className="font-display text-xl font-bold text-slate-900 mt-6">{p.title}</h3>

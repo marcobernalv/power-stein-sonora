@@ -24,7 +24,7 @@ export const Hero = () => {
             </Reveal>
             <h1 className="font-display font-black tracking-tighter uppercase text-slate-900 mt-6 text-5xl md:text-6xl lg:text-7xl leading-[0.92]">
               <MaskReveal delay={0.1}>Ahorra hasta</MaskReveal>
-              <MaskReveal delay={0.22}><span className="text-brand-blue">98%</span> en tu</MaskReveal>
+              <MaskReveal delay={0.22}><span className="text-brand-flare">98%</span> en tu</MaskReveal>
               <MaskReveal delay={0.34}>recibo de luz</MaskReveal>
             </h1>
             <Reveal delay={0.5}>
@@ -34,7 +34,7 @@ export const Hero = () => {
             </Reveal>
             <Reveal delay={0.6}>
               <div className="flex flex-wrap gap-4 mt-9">
-                <Link to="/contacto" data-testid="hero-cta-cotiza" className="group inline-flex items-center gap-2 rounded-full bg-brand-blue text-white px-8 py-4 font-bold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl shadow-blue-600/25">
+                <Link to="/contacto" data-testid="hero-cta-cotiza" className="group inline-flex items-center gap-2 rounded-full bg-brand-blue text-brand-ink px-8 py-4 font-bold hover:brightness-95 hover:scale-105 transition-all duration-300 shadow-xl shadow-brand-blue/25">
                   Solicita tu cotización gratis
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -56,7 +56,7 @@ export const Hero = () => {
                 />
               </div>
               <div className="absolute -left-4 md:-left-8 top-10 bg-white rounded-2xl shadow-xl px-5 py-4 border border-slate-100">
-                <p className="font-display text-3xl font-black text-brand-blue leading-none">1,600+</p>
+                <p className="font-display text-3xl font-black text-brand-flare leading-none">1,600+</p>
                 <p className="text-xs text-slate-500 font-semibold mt-1">Instalaciones</p>
               </div>
               <div className="absolute -right-2 md:-right-6 bottom-16 bg-brand-ink text-white rounded-2xl shadow-xl px-5 py-4">

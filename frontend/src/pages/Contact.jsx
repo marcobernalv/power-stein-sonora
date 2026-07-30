@@ -23,7 +23,7 @@ export default function Contact() {
             <div className="mt-10 space-y-6">
               <a href={`tel:+52${CONTACT.whatsapp}`} data-testid="contact-phone" className="flex items-start gap-4 group">
                 <span className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center group-hover:bg-brand-blue transition-colors">
-                  <Phone className="w-5 h-5 text-brand-blue group-hover:text-white transition-colors" />
+                  <Phone className="w-5 h-5 text-brand-flare group-hover:text-brand-ink transition-colors" />
                 </span>
                 <span><span className="block text-sm text-slate-500">Teléfono</span><span className="font-bold text-slate-900">{CONTACT.phone}</span></span>
               </a>
@@ -34,7 +34,7 @@ export default function Contact() {
                 <span><span className="block text-sm text-slate-500">WhatsApp</span><span className="font-bold text-slate-900">{CONTACT.whatsappDisplay}</span></span>
               </a>
               <a href={`mailto:${CONTACT.email}`} data-testid="contact-email" className="flex items-start gap-4 group">
-                <span className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center group-hover:bg-brand-flare transition-colors">
+                <span className="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center group-hover:bg-brand-flare transition-colors">
                   <Mail className="w-5 h-5 text-brand-flare group-hover:text-white transition-colors" />
                 </span>
                 <span><span className="block text-sm text-slate-500">Correo</span><span className="font-bold text-slate-900">{CONTACT.email}</span></span>
