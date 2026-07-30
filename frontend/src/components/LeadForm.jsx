@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Loader2, CheckCircle2, Clock } from "lucide-react";
-import { submitLead } from "@/lib/api";
 import { CONTACT } from "@/lib/data";
 
 const CITIES = ["Hermosillo", "San Carlos", "Guaymas", "Nogales", "Ciudad Obregón", "Otra"];
@@ -33,16 +32,9 @@ export const LeadForm = ({ compact = false }) => {
     const waUrl = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
     window.open(waUrl, "_blank");
 
-    try {
-      await submitLead({ ...form, origen: "Formulario de contacto" });
-      setDone(true);
-      toast.success("¡Solicitud enviada! Te contactamos en menos de 24 horas.");
-    } catch (err) {
-      setDone(true);
-      toast.success("Abrimos WhatsApp para enviar tu cotización.");
-    } finally {
-      setLoading(false);
-    }
+    setDone(true);
+    setLoading(false);
+    toast.success("Se abrió WhatsApp.");
   };
 
   if (done) {
