@@ -1,5 +1,6 @@
 // Central content + assets for Power Stein Sonora
 export const LOGO = "https://customer-assets-7cd3h4nn.emergentagent.net/job_paneles-solares-mx/artifacts/hxtncbnu_IMG_0960.jpeg";
+export const LOGO_FOOTER = "/logo-footer.png";
 export const BRAND_GREEN = "#C3D502";
 
 export const CONTACT = {

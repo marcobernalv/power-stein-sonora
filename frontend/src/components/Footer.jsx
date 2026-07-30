@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
-import { CONTACT } from "@/lib/data";
-import { Logo } from "@/components/Logo";
+import { CONTACT, LOGO_FOOTER } from "@/lib/data";
 
 export const Footer = () => (
   <footer className="bg-brand-ink text-white" data-testid="site-footer">
     <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="md:col-span-1">
-        <div className="inline-block bg-white rounded-2xl px-5 py-4">
-          <Logo className="h-12 md:h-14 w-auto" />
-        </div>
+        <img src={LOGO_FOOTER} alt="Power Stein Paneles Solares" data-testid="footer-logo" className="h-16 md:h-20 w-auto object-contain" />
         <p className="mt-5 text-slate-400 text-sm leading-relaxed max-w-xs">
           Energía solar de nivel premium en Hermosillo y Sonora. Ahorra hasta 98% en tu recibo de CFE.
         </p>
