@@ -15,7 +15,7 @@ export const CasesGrid = ({ limit }) => {
               <p className="text-[10px] font-bold uppercase tracking-wider mt-0.5">de ahorro</p>
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
-              <p className="text-sm font-bold text-brand-flare uppercase tracking-wider">{c.zona}</p>
+              {c.zona && <p className="text-sm font-bold text-brand-flare uppercase tracking-wider">{c.zona}</p>}
               <p className="text-slate-200 mt-2">{c.desc}</p>
               <p className="mt-3 text-sm text-slate-300">Antes pagaba <span className="line-through">{c.antes}</span></p>
             </div>

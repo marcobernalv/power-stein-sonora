@@ -1,10 +1,10 @@
 import { LOGO } from "@/lib/data";
 
-export const Logo = ({ light = false }) => (
+export const Logo = ({ className = "h-14 w-52" }) => (
   <img
     src={LOGO}
     alt="Power Stein Paneles Solares"
     data-testid="brand-logo"
-    className={`h-14 md:h-16 w-auto object-contain ${light ? "" : ""}`}
+    className={`${className} object-cover object-center`}
   />
 );

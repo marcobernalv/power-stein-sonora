@@ -20,7 +20,7 @@ export const TrustBadges = () => (
           return (
             <Reveal key={t.title} delay={i * 0.08}>
               <div data-testid="trust-badge" className="bg-white rounded-3xl p-8 text-center border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
-                <Icon className="w-10 h-10 text-brand-flare mx-auto" />
+                <Icon className="w-10 h-10 text-brand-green mx-auto" />
                 <p className="font-display text-xl font-bold text-slate-900 mt-4">{t.title}</p>
                 <p className="text-slate-500 text-sm mt-1">{t.text}</p>
               </div>

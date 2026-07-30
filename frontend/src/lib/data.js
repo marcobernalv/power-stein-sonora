@@ -48,7 +48,7 @@ export const PROCESS = [
 
 export const CASES = [
   { zona: "Residencial · Pantiti", ahorro: "90%", antes: "$4,800/mes", desc: "Familia que eliminó casi por completo su tarifa alta de CFE.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/pantiti-400x250.jpg" },
-  { zona: "Comercial · Hermosillo", ahorro: "88%", antes: "$62,000/mes", desc: "Proyecto comercial de gran escala documentado desde el aire.", img: "https://www.powersteinsonora.com/wp-content/uploads/2020/06/DJI_0031.png" },
+  { zona: "", ahorro: "88%", antes: "$62,000/mes", desc: "Proyecto comercial de gran escala documentado desde el aire.", img: "https://www.powersteinsonora.com/wp-content/uploads/2020/06/DJI_0031.png" },
   { zona: "Residencial · Oscar Luna", ahorro: "70%", antes: "$6,200/mes", desc: "Instalación residencial con reducción notable en el recibo mensual.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/Oscar-Luna-400x250.jpg" },
   { zona: "Residencial · Monterosa", ahorro: "20%", antes: "$3,500/mes", desc: "Sistema instalado para complementar el consumo del hogar.", img: "https://www.powersteinsonora.com/wp-content/uploads/2019/07/Monterosa-400x250.jpg" },
 ];

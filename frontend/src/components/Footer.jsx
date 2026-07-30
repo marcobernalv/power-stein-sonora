@@ -7,9 +7,7 @@ export const Footer = () => (
   <footer className="bg-brand-ink text-white" data-testid="site-footer">
     <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="md:col-span-1">
-        <div className="inline-block bg-white rounded-2xl px-4 py-3">
-          <Logo />
-        </div>
+        <Logo className="h-20 w-72" />
         <p className="mt-5 text-slate-400 text-sm leading-relaxed max-w-xs">
           Energía solar de nivel premium en Hermosillo y Sonora. Ahorra hasta 98% en tu recibo de CFE.
         </p>
@@ -19,7 +17,7 @@ export const Footer = () => (
         <h4 className="font-display font-bold text-sm uppercase tracking-[0.2em] text-slate-500 mb-5">Navegación</h4>
         <ul className="space-y-3 text-slate-300">
           {[["Nosotros","/nosotros"],["Paneles Solares","/paneles-solares"],["Casos de Éxito","/casos-de-exito"],["Contacto","/contacto"]].map(([l,to]) => (
-            <li key={to}><Link to={to} className="hover:text-brand-flare transition-colors" data-testid={`footer-nav-${to.replace("/","")}`}>{l}</Link></li>
+            <li key={to}><Link to={to} className="hover:text-brand-green transition-colors" data-testid={`footer-nav-${to.replace("/","")}`}>{l}</Link></li>
           ))}
         </ul>
       </div>
@@ -27,9 +25,9 @@ export const Footer = () => (
       <div>
         <h4 className="font-display font-bold text-sm uppercase tracking-[0.2em] text-slate-500 mb-5">Contacto</h4>
         <ul className="space-y-4 text-slate-300 text-sm">
-          <li className="flex gap-3"><MapPin className="w-5 h-5 text-brand-flare shrink-0" /> {CONTACT.address}</li>
-          <li className="flex gap-3"><Phone className="w-5 h-5 text-brand-flare shrink-0" /> <a href={`tel:+52${CONTACT.whatsapp}`} className="hover:text-brand-flare">{CONTACT.phone}</a></li>
-          <li className="flex gap-3"><Mail className="w-5 h-5 text-brand-flare shrink-0" /> <a href={`mailto:${CONTACT.email}`} className="hover:text-brand-flare">{CONTACT.email}</a></li>
+          <li className="flex gap-3"><MapPin className="w-5 h-5 text-brand-green shrink-0" /> {CONTACT.address}</li>
+          <li className="flex gap-3"><Phone className="w-5 h-5 text-brand-green shrink-0" /> <a href="tel:+526624332313" className="hover:text-brand-green transition-colors">{CONTACT.phone}</a></li>
+          <li className="flex gap-3"><Mail className="w-5 h-5 text-brand-green shrink-0" /> <a href={`mailto:${CONTACT.email}`} data-testid="footer-email" className="underline underline-offset-4 hover:text-brand-green transition-colors">{CONTACT.email}</a></li>
         </ul>
       </div>
 
@@ -43,7 +41,7 @@ export const Footer = () => (
             <Instagram className="w-5 h-5" />
           </a>
         </div>
-        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 rounded-full bg-brand-flare text-white px-6 py-3 font-bold text-sm hover:bg-orange-600 transition-colors" data-testid="footer-cta-cotiza">
+        <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 rounded-full bg-brand-green text-brand-ink px-6 py-3 font-bold text-sm hover:brightness-95 transition-all" data-testid="footer-cta-cotiza">
           Cotiza Gratis
         </a>
       </div>

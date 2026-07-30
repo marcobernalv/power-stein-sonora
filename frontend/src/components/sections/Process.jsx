@@ -13,7 +13,7 @@ export const Process = () => (
       <div className="relative mt-16">
         <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-slate-200" />
         <motion.div
-          className="hidden lg:block absolute top-8 left-0 h-px bg-brand-blue origin-left"
+          className="hidden lg:block absolute top-8 left-0 h-px bg-brand-green origin-left"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
